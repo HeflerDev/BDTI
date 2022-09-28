@@ -11,12 +11,11 @@ const TasksForm = () => {
       tags: []
    })
 
-   function handleSubmit() {
-
+   function handleSubmit({target}: any) {
    }
 
-   function handleChange() {
-      return undefined;
+   function handleChange({target}: any) {
+      setInput({...input, [target.name]: target.value})
    }
 
    return <div className={"task-modal"}>
