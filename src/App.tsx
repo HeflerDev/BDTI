@@ -1,6 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import { useSelector, useDispatch} from "react-redux";
+import React, {useEffect} from 'react';
+import {useDispatch} from "react-redux";
 import {populateTasks} from "./store/slice/taskSlice";
+
+import TasksPage from "./components/TasksPage";
 
 import {Container} from "react-bootstrap";
 import './App.scss';
@@ -13,14 +15,14 @@ function App() {
             const tasks = JSON.parse(localStorage.getItem("tasks") || "");
             dispatch(populateTasks(tasks))
         }
-    }, [])
+    }, [dispatch])
 
   return (
     <main>
       <section className="header-section"></section>
       <Container fluid={"md"}>
         <section className="menu-section"></section>
-        <section className="tasks-section"></section>
+        <TasksPage />
         <section className="footer-section"></section>
       </Container>
     </main>
