@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
-import Tasks from "./Tasks";
+import Tasks from "../components/Tasks";
 import {Button, Col, Image, Row} from "react-bootstrap";
 import Cat from "../assets/nothing_here.png";
-import TasksForm from "./TasksForm";
+import TasksForm from "../components/TasksForm";
 
 const TasksPage = () => {
     const [tasks, setTasks] = useState([]);
     const [modal, setModal] = useState(false)
     
-    useEffect(() =>{
+    useEffect(() => {
         // @ts-ignore
         const storage = JSON.parse(localStorage.getItem("tasks"))
         if (storage) {

@@ -6,6 +6,10 @@ export const taskSlice = createSlice({
         value: [],
     },
     reducers: {
+        saveData: (state) => {
+            console.log("KKKKK")
+            localStorage.setItem("tasks", JSON.stringify(state.value))
+        },
         populateTasks: (state, {payload}) => {
             state.value = payload;
         },
@@ -15,5 +19,5 @@ export const taskSlice = createSlice({
     },
 })
 
-export const { addTask, populateTasks } = taskSlice.actions
+export const { addTask, populateTasks, saveData} = taskSlice.actions
 export default taskSlice.reducer

@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from "react-redux";
-import {populateTasks} from "./store/slice/taskSlice";
+import {populateTasks} from "./services/slice/taskSlice";
 
-import TasksPage from "./components/TasksPage";
+import TasksPage from "./pages/TasksPage";
 
 import {Container} from "react-bootstrap";
 import './App.scss';

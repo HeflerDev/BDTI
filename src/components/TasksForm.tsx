@@ -1,6 +1,14 @@
 import React, {useState} from "react";
+import {Col, Row} from "react-bootstrap";
+import Validate from "../services/utils/Validate";
+import {useDispatch, useSelector} from "react-redux";
+import {addTask, saveData} from "../services/slice/taskSlice";
 
 const TasksForm = () => {
+   const dispatch = useDispatch()
+   const selector = useSelector(state => state.task.value)
+   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   const [errors, setErrors] = useState([])
    const [input, setInput] = useState({
       title: "",
       description: "",
@@ -11,39 +19,76 @@ const TasksForm = () => {
       tags: []
    })
 
-   function handleSubmit({target}: any) {
+   function handleSubmit(e: any) {
+      e.preventDefault();
+      const validation = new Validate(input)
+      if (validation.valid) {
+         dispatch(addTask(input))
+         dispatch(saveData())
+      } else {
+         // @ts-ignore
+         setErrors(validation.errors)
+      }
    }
 
    function handleChange({target}: any) {
-      setInput({...input, [target.name]: target.value})
+      switch (target.type) {
+         case "text":
+         case "select-one":
+            setInput({...input, [target.name]: target.value})
+              break
+         case "checkbox":
+            setInput({...input, [target.name]: target.checked})
+            break
+         default:
+            console.error("Problem identifying input type");
+            break
+      }
    }
 
    return <div className={"task-modal"}>
       <form onSubmit={handleSubmit}>
-         <label htmlFor="title">
-            Title:
-            <input name={"title"} type="text" onChange={handleChange} value={input.title} />
-         </label>
+         <Row className={"justify-content-between"}>
+            <Col xs={12}>
+               <label htmlFor="title">
+                  Title:
+                  <input name={"title"} type="text" onChange={handleChange} value={input.title} />
+               </label>
+            </Col>
 
-         <label htmlFor="description">
-            Description:
-            <input name={"description"} type="textarea" onChange={handleChange} value={input.description} />
-         </label>
+            <Col xs={12}>
+               <label htmlFor="description" className={"form-label"}>
+                  Description:
+                  <input name={"description"} type="textarea" onChange={handleChange} value={input.description} />
+               </label>
+            </Col>
 
-         <label htmlFor="important">
-            Important:
-            <input name={"important"} type="checkbox" onChange={handleChange} checked={input.important} />
-         </label>
+            <Col xs={12} md={5}>
+               <label htmlFor="important" className={"form-label"}>
+                  <div className={"align"}>
+                     Important:
+                     <input name={"important"} type="checkbox" onChange={handleChange} checked={input.important} />
+                  </div>
+               </label>
+            </Col>
 
-         <label htmlFor="repeat">
-            Repeat:
-            <select name="repeat" id="repeat">
-               <option value="unique">Unique</option>
-               <option value="weekday">Weekday</option>
-               <option value="weekend">Weekend</option>
-               <option value="always">Always</option>
-            </select>
-         </label>
+            <Col xs={12} md={7}>
+               <label htmlFor="repeat" className={"form-label"}>
+                  <div className="align">
+                     Repeat:
+                     <select name="repeat" onChange={handleChange} id="repeat">
+                        <option value="unique">Unique</option>
+                        <option value="weekday">Weekday</option>
+                        <option value="weekend">Weekend</option>
+                        <option value="always">Always</option>
+                     </select>
+                  </div>
+               </label>
+            </Col>
+            <Col xs={12}>
+               <input type="submit"/>
+            </Col>
+         </Row>
       </form>
    </div>
 }
