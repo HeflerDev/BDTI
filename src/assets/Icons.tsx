@@ -1,3 +1,6 @@
+/*
+TODO: Gosto de trabalhar com ícones componentizados para fácil implementação.
+ */
 export const Important = ({
                               size = '1rem',
                               color = "red"

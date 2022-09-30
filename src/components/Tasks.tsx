@@ -25,7 +25,11 @@ const Task = ({tasks}: { tasks: Tasks }) => {
                         <div className="title">{tasks.title}</div>
                     </Col>
                     <Col xs={2} className={"important-container"}>
-                        <div className="important"><Important size={"2rem"}/></div>
+                        {
+                            tasks.important ? (
+                                <div className="important"><Important size={"2rem"}/></div>
+                            ) : null
+                        }
                     </Col>
                 </Row>
                 <p className="description">{tasks.description}</p>

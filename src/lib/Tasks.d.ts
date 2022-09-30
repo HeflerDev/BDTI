@@ -1,3 +1,7 @@
+/*
+TODO: Aqui em lib são shchemas e tipagens de dados
+ */
+
 export type Tasks = {
     id: number
     title: string,

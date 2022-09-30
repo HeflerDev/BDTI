@@ -1,13 +1,27 @@
 import IValidate, {Input} from "./IValidate";
 
+/*
+TODO: Serviço de validação dos campos dos formulários.
+ */
+
 export default class Validate implements IValidate {
     public input: Input;
-    private _errors: Array<string | never> = [];
-    private _valid = false;
 
     constructor(input: Input) {
         this.input = input
         this.tasksForm()
+    }
+
+    private _errors: Array<string | never> = [];
+
+    get errors(): String[] | never {
+        return this._errors;
+    }
+
+    private _valid = false;
+
+    get valid(): boolean {
+        return this._valid;
     }
 
     public tasksForm = (): void => {
@@ -17,12 +31,4 @@ export default class Validate implements IValidate {
 
         if (this.errors) this._valid = true
     };
-
-    get errors(): String[] | never {
-        return this._errors;
-    }
-
-    get valid(): boolean {
-        return this._valid;
-    }
 }

@@ -25,9 +25,9 @@ const TasksPage = () => {
             ) : (
                 <div className={"no-content"}>
                     <h3>No content</h3>
-                    <p>No Content to display, click on the top right or the button bellow to create a task. </p>
+                    <p>No Content to display, click on the top left or the button bellow to create a task. </p>
                     <Row className={"justify-content-center"}>
-                        <Col xs={12} md={6} lg={4}>
+                        <Col xs={12} md={10} lg={8}>
                             <Button variant={"primary"} onClick={() => setModal(!modal)}>Create Task</Button>
                             {
                                 modal ? (

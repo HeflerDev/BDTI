@@ -11,6 +11,10 @@ function App() {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        /*
+            Marquei as mensagens com "T0DO" para marcar os comentários e facilitar a navegação.
+            TODO: Utilizo o localStorage para popular o redux e ter o "material" para manipular.
+         */
         if (localStorage.getItem("tasks") || "") {
             dispatch(populateTasks())
         }

@@ -18,9 +18,11 @@ export const taskSlice = createSlice({
     initialState,
     reducers: {
         saveData: (state) => {
+            // TODO: Salva o estado da store no localstorage
             localStorage.setItem("tasks", JSON.stringify(state.value))
         },
         populateTasks: (state: any) => {
+            // TODO: Roda no início de cada seção para ajustar o Redux com o localStorage.
             const tasks: Array<any> = [];
             JSON.parse(localStorage.getItem("tasks") || "").map((item: any, id: number) => {
                 item.id = id

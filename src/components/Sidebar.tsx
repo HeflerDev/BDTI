@@ -14,9 +14,6 @@ const Sidebar = () => {
             <Col xs={"12"}>
                 <Btn text={"Criar nova Tarefa"} onClick={handleClick}></Btn>
             </Col>
-            <Col xs={12}>
-                <Btn text={"Ver completos"} onClick={handleClick}></Btn>
-            </Col>
             {
                 modal ? (<TasksForm setModal={setModal}/>) : null
             }
