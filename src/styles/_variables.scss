@@ -1,25 +1,9 @@
-/* SCSS HEX */
 $oxford-blue: #0a122aff;
 $maximum-green: #698f3fff;
 $white: #fbfaf8ff;
 $bone: #e7decdff;
 $tuscan-red: #804e49ff;
 
-/* SCSS HSL */
-$oxford-blue: hsla(225, 62%, 10%, 1);
-$maximum-green: hsla(89, 39%, 40%, 1);
-$white: hsla(40, 27%, 98%, 1);
-$bone: hsla(39, 35%, 85%, 1);
-$tuscan-red: hsla(5, 27%, 39%, 1);
-
-/* SCSS RGB */
-$oxford-blue: rgba(10, 18, 42, 1);
-$maximum-green: rgba(105, 143, 63, 1);
-$white: rgba(251, 250, 248, 1);
-$bone: rgba(231, 222, 205, 1);
-$tuscan-red: rgba(128, 78, 73, 1);
-
-/* SCSS Gradient */
 $gradient-top: linear-gradient(0deg, #0a122aff, #698f3fff, #fbfaf8ff, #e7decdff, #804e49ff);
 $gradient-right: linear-gradient(90deg, #0a122aff, #698f3fff, #fbfaf8ff, #e7decdff, #804e49ff);
 $gradient-bottom: linear-gradient(180deg, #0a122aff, #698f3fff, #fbfaf8ff, #e7decdff, #804e49ff);
