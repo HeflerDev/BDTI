@@ -7,4 +7,4 @@ export type Tasks = {
     important: boolean,
     repeat: "unique" | "weekday" | "weekend" | "always",
     tags: String[]
-}
+} | never
