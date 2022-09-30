@@ -1,0 +1,71 @@
+@use "variables";
+
+.task-container {
+  background-color: variables.$bone;
+  position: relative;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 20px;
+  max-width: 720px;
+
+  > .repeat {
+    background-color: variables.$oxford-blue;
+    color: variables.$white;
+    font-weight: bold;
+    width: fit-content;
+    position: absolute;
+    padding: 0.2rem 0.5rem;
+    top: -10px;
+    left: 20px;
+    border-radius: 10px;
+  }
+}
+
+.check-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  > .incomplete {
+    border: solid variables.$tuscan-red 0.3rem;
+    background-color: variables.$white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: variables.$maximum-green;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+  }
+
+  > .completed {
+    border: solid variables.$tuscan-red 0.3rem;
+    background-color: variables.$white;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: auto;
+  }
+}
+
+.text-container {
+  > .title {
+    font-size: large;
+    font-weight: bolder;
+    margin: 0.2rem 0;
+  }
+}
+
+.important-container {
+  padding: 0;
+
+  > .important {
+    display: flex;
+    justify-content: end;
+  }
+}

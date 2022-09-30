@@ -1,0 +1,13 @@
+@use "variables";
+
+.main-nav {
+  height: 100vh;
+  width: 100%;
+  background-color: variables.$bone;
+}
+
+.btn-container {
+  > .btn {
+    width: 100% !important;
+  }
+}

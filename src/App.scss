@@ -1,0 +1,19 @@
+// TODO: Arquivo global de css onde importa os estilos encontrados pelas pastas.
+
+@use "styles/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "styles/TasksPage";
+@import "styles/TasksForm";
+@import "styles/Tasks";
+@import "styles/Btn";
+
+.app {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.side-container {
+  background-color: variables.$bone;
+  position: sticky;
+}
